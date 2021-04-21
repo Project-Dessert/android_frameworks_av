@@ -411,6 +411,7 @@ binder::Status SessionConfigurationUtils::createSurfaceFromGbp(
         // we can use the default stream configuration map
         foundInMaxRes = true;
     }
+
     // Round dimensions to the nearest dimensions available for this format
     if (flexibleConsumer && isPublicFormat(format) &&
             !SessionConfigurationUtils::roundBufferDimensionNearest(width, height,
