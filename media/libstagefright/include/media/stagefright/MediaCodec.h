@@ -446,6 +446,12 @@ private:
     int32_t mRotationDegrees;
     int32_t mAllowFrameDroppingBySurface;
 
+    uint32_t mHDRMetadataFlags; /* bitmask of kFlagHDR* */
+    enum {
+        kFlagHDRStaticInfo = 1 << 0,
+        kFlagHDR10PlusInfo = 1 << 1,
+    };
+
     // initial create parameters
     AString mInitName;
 
