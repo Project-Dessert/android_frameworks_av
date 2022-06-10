@@ -119,7 +119,10 @@ static status_t _ImageCopy(View &view, const MediaImage2 *img, ImagePixel *imgBa
 }  // namespace
 
 status_t ImageCopy(uint8_t *imgBase, const MediaImage2 *img, const C2GraphicView &view) {
-    if (view.crop().width != img->mWidth || view.crop().height != img->mHeight) {
+    if (img == nullptr
+        || imgBase == nullptr
+        || view.crop().width != img->mWidth
+        || view.crop().height != img->mHeight) {
         return BAD_VALUE;
     }
     const uint8_t* src_y = view.data()[0];
@@ -191,7 +194,10 @@ status_t ImageCopy(uint8_t *imgBase, const MediaImage2 *img, const C2GraphicView
 }
 
 status_t ImageCopy(C2GraphicView &view, const uint8_t *imgBase, const MediaImage2 *img) {
-    if (view.crop().width != img->mWidth || view.crop().height != img->mHeight) {
+    if (img == nullptr
+        || imgBase == nullptr
+        || view.crop().width != img->mWidth
+        || view.crop().height != img->mHeight) {
         return BAD_VALUE;
     }
     const uint8_t* src_y = imgBase + img->mPlane[0].mOffset;
